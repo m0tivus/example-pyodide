@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="https://cdn.jsdelivr.net/pyodide/v0.20.0/full/pyodide.js"></script>
+      <!--<script src="pyodide.js"></script>-->
+  </head>
+  <body>
+    <script type="text/javascript">
+      async function main(){
+        let pyodide = await loadPyodide();
+        await pyodide.loadPackage("numpy");
+        console.log(pyodide.runPython((await (await fetch("../scripts/hello_world.py")).text())));
+      }
+      main();
+    </script>
+  </body>
+</html>
